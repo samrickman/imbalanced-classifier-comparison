@@ -4,7 +4,7 @@
 
 This is the Python code required to generate the following plot, which compares some machine learning classifiers:
 
-
+![](https://raw.githubusercontent.com/samrickman/imbalanced-classifier-comparison/main/plots/algorithms.png)
 
 This plot is based on the one created by in the [Sci-Kit Learn documentation](https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html). That was created by Gaël Varoquaux and Andreas Müller, and modified for documentation by Jaques Grobler.
 
