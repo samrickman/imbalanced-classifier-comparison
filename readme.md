@@ -2,11 +2,16 @@
 
 ## What is this?
 
-This is the Python code required to generate the following plots, which compares some machine learning classifiers with imbalanced data:
+This is the Python code required to generate the following plots, which compares some machine learning classifiers with imbalanced data and varying levels of noise.
+
+## Noisy data
 
 ![Noisy data](https://raw.githubusercontent.com/samrickman/imbalanced-classifier-comparison/main/plots/algorithms.png)
 
-This plot is based on the one created by in the [Sci-Kit Learn documentation](https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html). That was created by Gaël Varoquaux and Andreas Müller, and modified for documentation by Jaques Grobler.
+## Not noisy data
+
+
+This plot is based on the one created by in the [Scikit-learn documentation](https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html). That was created by Gaël Varoquaux and Andreas Müller, and modified for documentation by Jaques Grobler.
 
 ## Why create this?
 
@@ -14,8 +19,9 @@ I created this for a presentation as a way of graphically illustrating the diffe
 
 In my real world example (which has data that cannot be published), I have extremely imbalanced data. I wanted to see how this compared to the comparisons in the documentation. 
 
-1. The comparison in the Sci-Kit Learn documentation use balanced data (i.e. 0.5/0.5 split between binary classes). This plot uses unbalanced data (0.93/0.07) split.
+1. The comparison in the Scikit-learn documentation use balanced data (i.e. 0.5/0.5 split between binary classes). This plot uses unbalanced data (0.93/0.07) split.
 2. The comparison in the documentation only contains Accuracy as a metric (which is reasonable for balanced data). This also has [F1 score](https://en.wikipedia.org/wiki/F-score), the harmonised mean of precision and recall.
+3. I vary the level of noise in my plots. This is a parameter at the beginning of `main.py` which can be set by the user.
 
 There are also cosmetic differences, e.g. the plots in the documentation use [contourf](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.contourf.html#matplotlib.pyplot.contourf), while these use [pcolormesh](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.pcolormesh.html).
 

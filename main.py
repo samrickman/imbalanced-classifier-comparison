@@ -15,8 +15,8 @@ from datetime import datetime
 # Settings - define num samples
 NUM_SAMPLES = 10_000
 IMBALANCE_RATIO = 0.93
-NOISE = 0.02  # non-linear
-CLASS_SEP = 3  # linear. 3 separates classes. 1 is quite noisy.
+NOISE = 0.2  # non-linear - 0.25 is noisy, 0.02 not noisy.
+CLASS_SEP = 1  # linear. 1 noisy, 3 not noisy.
 
 
 # Define classifiers
@@ -61,7 +61,7 @@ def main():
     draw_classification_plot(df_dict,
                              classifier_names,
                              classifiers,
-                             outfile="algorithms-not-noisy"
+                             outfile="algorithms-noisy"
                              )
 
 
