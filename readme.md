@@ -6,7 +6,7 @@ This is the Python code required to generate the following plots, which compares
 
 ## Noisy data
 
-![Noisy data](https://raw.githubusercontent.com/samrickman/imbalanced-classifier-comparison/main/plots/algorithms.png)
+![Noisy data](https://raw.githubusercontent.com/samrickman/imbalanced-classifier-comparison/main/plots/algorithms-noisy.png)
 
 ## Not noisy data
 

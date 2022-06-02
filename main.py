@@ -15,8 +15,9 @@ from datetime import datetime
 # Settings - define num samples
 NUM_SAMPLES = 10_000
 IMBALANCE_RATIO = 0.93
-NOISE = 0.3  # non-linear - 0.3 is noisy, 0.02 not noisy.
-CLASS_SEP = 1  # linear. 1 noisy, 3 not noisy.
+# Settings in next 2 lines are to generate 2 plots in readme
+NOISE = 0.3  # non-linear: 0.3 is noisy, 0.02 not noisy.
+CLASS_SEP = 1  # linear: 1 noisy, 3 not noisy.
 
 
 # Define classifiers
