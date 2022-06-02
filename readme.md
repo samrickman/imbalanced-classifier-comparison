@@ -10,6 +10,7 @@ This is the Python code required to generate the following plots, which compares
 
 ## Not noisy data
 
+![Not noisy data](https://raw.githubusercontent.com/samrickman/imbalanced-classifier-comparison/main/plots/algorithms-not-noisy.png)
 
 This plot is based on the one created by in the [Scikit-learn documentation](https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html). That was created by Gaël Varoquaux and Andreas Müller, and modified for documentation by Jaques Grobler.
 
