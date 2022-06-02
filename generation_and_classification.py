@@ -12,7 +12,7 @@ from sklearn.preprocessing import StandardScaler
 import os
 
 
-def create_linearly_separable(num_samples, imbalance_ratio):
+def create_linearly_separable(num_samples, imbalance_ratio, class_sep):
     X, y = make_classification(
         n_features=2,
         n_redundant=0,
@@ -24,7 +24,7 @@ def create_linearly_separable(num_samples, imbalance_ratio):
         n_samples=num_samples,
         flip_y=0,
         n_classes=2,
-        class_sep=3
+        class_sep=class_sep
     )
     rng = np.random.RandomState(2)
     X += 2 * rng.uniform(size=X.shape)
@@ -45,13 +45,18 @@ def create_linearly_separable(num_samples, imbalance_ratio):
 
 def create_not_linearly_separable(fn, num_in_majority_group, num_in_minority_group, noise):
 
+    # Adjust noise for make_circles which is very sensitive
+    if fn == make_circles:
+        noise = noise * 2/3
+        print("Noise for circles adjusted...")
+
     try:
         X, y = fn(
-            random_state=1, n_samples=[num_in_majority_group, num_in_minority_group], noise=noise
+            random_state=1, n_samples=[num_in_majority_group, num_in_minority_group], noise=noise, factor=0.5
         )
-    except TypeError:  # make_blobs doesn't have a noise parameter - they're already noisy
+    except TypeError:  # no factor parameter
         X, y = fn(
-            random_state=1, n_samples=[num_in_majority_group, num_in_minority_group]
+            random_state=1, n_samples=[num_in_majority_group, num_in_minority_group], noise=noise
         )
 
     xy = np.c_[X, y]
@@ -74,10 +79,11 @@ def create_all_data(
         imbalance_ratio,
         num_in_majority_group,
         num_in_minority_group,
-        noise):
+        noise,
+        class_sep):
     df_dict = {}
     df_dict['linear'] = create_linearly_separable(
-        num_samples, imbalance_ratio)
+        num_samples, imbalance_ratio, class_sep)
     for fn in not_linearly_separable_fns:
         df_dict.update(create_not_linearly_separable(
             fn, num_in_majority_group, num_in_minority_group, noise))

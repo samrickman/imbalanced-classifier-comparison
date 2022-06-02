@@ -15,7 +15,7 @@ from datetime import datetime
 # Settings - define num samples
 NUM_SAMPLES = 10_000
 IMBALANCE_RATIO = 0.93
-NOISE = 0.2  # non-linear - 0.25 is noisy, 0.02 not noisy.
+NOISE = 0.3  # non-linear - 0.3 is noisy, 0.02 not noisy.
 CLASS_SEP = 1  # linear. 1 noisy, 3 not noisy.
 
 
@@ -56,7 +56,8 @@ def main():
         imbalance_ratio=IMBALANCE_RATIO,
         num_in_majority_group=num_in_majority_group,
         num_in_minority_group=num_in_minority_group,
-        noise=NOISE)
+        noise=NOISE,
+        class_sep=CLASS_SEP)
 
     draw_classification_plot(df_dict,
                              classifier_names,
