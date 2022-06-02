@@ -27,7 +27,6 @@ This only currently compares six classifiers: logistic regression, random forest
 
 Assuming you have Python, pip and virtualenv installed:
 
-
 ## How to run locally
 
 ### Installation 
@@ -42,8 +41,7 @@ git clone https://github.com/samrickman/imbalanced-classifier-comparison
 python -m venv ./venv
 .\venv\Scripts\activate.ps1
 pip install -r .\requirements.txt
-python .\1__create_data.py 
-python .\2__plot_classification.py
+python .\main.py
 ```
 
 On Mac/Linux:
@@ -52,8 +50,7 @@ git clone https://github.com/samrickman/imbalanced-classifier-comparison
 python -m venv ./venv
 source venv/bin/activate
 pip install -r .\requirements.txt
-python .\1__create_data.py 
-python .\2__plot_classification.py
+python .\main.py
 ```
 
 # License
