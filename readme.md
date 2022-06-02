@@ -2,15 +2,15 @@
 
 ## What is this?
 
-This is the Python code required to generate the following plot, which compares some machine learning classifiers:
+This is the Python code required to generate the following plots, which compares some machine learning classifiers with imbalanced data:
 
-![](https://raw.githubusercontent.com/samrickman/imbalanced-classifier-comparison/main/plots/algorithms.png)
+![Noisy data](https://raw.githubusercontent.com/samrickman/imbalanced-classifier-comparison/main/plots/algorithms.png)
 
 This plot is based on the one created by in the [Sci-Kit Learn documentation](https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html). That was created by Gaël Varoquaux and Andreas Müller, and modified for documentation by Jaques Grobler.
 
 ## Why create this?
 
-I created this for a presentation as a way of graphically illustrating the differences between machine learning algorithms, without explaining the algorithms themselves.
+I created this for a presentation as a way of graphically illustrating the differences between machine learning algorithms, without explaining the algorithms themselves. In particular it shows how performance degrades as the data gets noisier.
 
 In my real world example (which has data that cannot be published), I have extremely imbalanced data. I wanted to see how this compared to the comparisons in the documentation. 
 
@@ -18,14 +18,6 @@ In my real world example (which has data that cannot be published), I have extre
 2. The comparison in the documentation only contains Accuracy as a metric (which is reasonable for balanced data). This also has [F1 score](https://en.wikipedia.org/wiki/F-score), the harmonised mean of precision and recall.
 
 There are also cosmetic differences, e.g. the plots in the documentation use [contourf](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.contourf.html#matplotlib.pyplot.contourf), while these use [pcolormesh](https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.pcolormesh.html).
-
-## To do:
-
-This only currently compares six classifiers: logistic regression, random forest, bagging, gradient boosting, gaussian process and a sequential neural network (multi-layer perceptron). I plan to extend this in due course.
-
-# How to run
-
-Assuming you have Python, pip and virtualenv installed:
 
 ## How to run locally
 
@@ -56,3 +48,7 @@ python .\main.py
 # License
 
 This code is based on other code with a 3 clause BSD license, and so has the same license. 
+
+## To do:
+
+This only currently compares six classifiers: logistic regression, random forest, bagging, gradient boosting, gaussian process and a sequential neural network (multi-layer perceptron). I plan to extend this.

@@ -192,4 +192,4 @@ def draw_classification_plot(df_dict, classifier_names, classifiers, outfile, fi
     if not os.path.exists("./plots/"):
         os.makedirs("./plots/")
     plt.savefig(f"./plots/{outfile}.png")
-    plt.show()
+    print(f"./plots/{outfile}.png created")

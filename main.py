@@ -12,13 +12,12 @@ from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.linear_model import LogisticRegression
 from datetime import datetime
 
-
-print(f'Script started at {datetime.now().strftime("%H:%M:%S")}')
-
 # Settings - define num samples
 NUM_SAMPLES = 10_000
 IMBALANCE_RATIO = 0.93
-NOISE = 0.2
+NOISE = 0.02  # non-linear
+CLASS_SEP = 3  # linear. 3 separates classes. 1 is quite noisy.
+
 
 # Define classifiers
 
@@ -42,26 +41,32 @@ classifier_names = [
 
 
 # Data generating functions
-not_linearly_separable_fns = [make_circles, make_blobs, make_moons]
+# Code will work if you add make_blobs but not different to linearly separable
+not_linearly_separable_fns = [make_circles, make_moons]
 
 # Size of imbalanced groups for data generating functions
 num_in_majority_group = int(NUM_SAMPLES*IMBALANCE_RATIO)
 num_in_minority_group = int(NUM_SAMPLES * (1-IMBALANCE_RATIO)) + 1
 
 
-df_dict = create_all_data(
-    not_linearly_separable_fns,
-    num_samples=NUM_SAMPLES,
-    imbalance_ratio=IMBALANCE_RATIO,
-    num_in_majority_group=num_in_majority_group,
-    num_in_minority_group=num_in_minority_group,
-    noise=NOISE)
+def main():
+    df_dict = create_all_data(
+        not_linearly_separable_fns,
+        num_samples=NUM_SAMPLES,
+        imbalance_ratio=IMBALANCE_RATIO,
+        num_in_majority_group=num_in_majority_group,
+        num_in_minority_group=num_in_minority_group,
+        noise=NOISE)
+
+    draw_classification_plot(df_dict,
+                             classifier_names,
+                             classifiers,
+                             outfile="algorithms-not-noisy"
+                             )
 
 
-draw_classification_plot(df_dict,
-                         classifier_names,
-                         classifiers,
-                         outfile="algorithms-noise-0.2"
-                         )
+if __name__ == "__main__":
 
-print(f'Script completed at {datetime.now().strftime("%H:%M:%S")}')
+    print(f'Script started at {datetime.now().strftime("%H:%M:%S")}')
+    main()
+    print(f'Script completed at {datetime.now().strftime("%H:%M:%S")}')
